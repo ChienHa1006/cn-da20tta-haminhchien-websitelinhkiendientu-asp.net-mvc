@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebSiteLKDT.Models.SanPham>
+@using WebSiteLKDT.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Danhmucsanpham";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutDanhmucsanpham.cshtml";
+}
+
+<h1>Danh mục sản phẩm</h1>
+<p>
+    <a asp-action="Themsanpham">Tạo mới sản phẩm </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+               Tên sản phẩm
+            </th>
+            <th>
+               Ảnh
+            </th>
+            <th>
+                Giá bán
+            </th>
+    
+            <th></th>
+        </tr>
+    </thead>
+ 
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSanPham)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Anh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaBan)
+            </td>
+            <td>
+                    <a asp-action="Suasanpham" asp-route-maSanPham="@item.MaSanPham" &nbsp>Sửa</a>
+                    
+                    <a asp-action="Xoasanpham" asp-route-maSanPham="@item.MaSanPham">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
