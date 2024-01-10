@@ -1,0 +1,532 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+@model List<WebSiteLKDT.Models.ChiTietDonHang>
+
+<!DOCTYPE HTML>
+<head>
+	<title>WebSite bán linh kiện</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="../UserLayout/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="../UserLayout/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+	<script type="text/javascript" src="../UserLayout/../UserLayout/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../UserLayout/js/move-top.js"></script>
+	<script type="text/javascript" src="../UserLayout/js/easing.js"></script>
+	<script type="text/javascript" src="../UserLayout/js/startstop-slider.js"></script>
+	<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		  crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+	<style>
+		.small-text {
+			font-size: smaller;
+		}
+
+		.mySlides {
+			display: none;
+		}
+
+		.search-box {
+			display: inline-block;
+		}
+
+		.search-form {
+			display: flex;
+			margin-left: auto; /* Đưa .search-form về cuối bên phải */
+		}
+
+		.search-input {
+			padding: 5px;
+			border: 1px solid #ccc;
+		}
+
+		.search-button {
+			padding: 5px 10px;
+			background-color: #cc0000;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+
+		body {
+			margin-top: 20px;
+		}
+
+		select.form-control:not([size]):not([multiple]) {
+			height: 44px;
+		}
+
+		select.form-control {
+			padding-right: 38px;
+			background-position: center right 17px;
+			background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNv…9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+			background-repeat: no-repeat;
+			background-size: 9px 9px;
+		}
+
+		.form-control:not(textarea) {
+			height: 44px;
+		}
+
+		.form-control {
+			padding: 0 18px 3px;
+			border: 1px solid #dbe2e8;
+			border-radius: 22px;
+			background-color: #fff;
+			color: #606975;
+			font-family: "Maven Pro",Helvetica,Arial,sans-serif;
+			font-size: 14px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+		}
+
+		.shopping-cart,
+		.wishlist-table,
+		.order-table {
+			margin-bottom: 20px
+		}
+
+			.shopping-cart .table,
+			.wishlist-table .table,
+			.order-table .table {
+				margin-bottom: 0
+			}
+
+			.shopping-cart .btn,
+			.wishlist-table .btn,
+			.order-table .btn {
+				margin: 0
+			}
+
+			.shopping-cart > table > thead > tr > th,
+			.shopping-cart > table > thead > tr > td,
+			.shopping-cart > table > tbody > tr > th,
+			.shopping-cart > table > tbody > tr > td,
+			.wishlist-table > table > thead > tr > th,
+			.wishlist-table > table > thead > tr > td,
+			.wishlist-table > table > tbody > tr > th,
+			.wishlist-table > table > tbody > tr > td,
+			.order-table > table > thead > tr > th,
+			.order-table > table > thead > tr > td,
+			.order-table > table > tbody > tr > th,
+			.order-table > table > tbody > tr > td {
+				vertical-align: middle !important
+			}
+
+			.shopping-cart > table thead th,
+			.wishlist-table > table thead th,
+			.order-table > table thead th {
+				padding-top: 17px;
+				padding-bottom: 17px;
+				border-width: 1px
+			}
+
+			.shopping-cart .remove-from-cart,
+			.wishlist-table .remove-from-cart,
+			.order-table .remove-from-cart {
+				display: inline-block;
+				color: #ff5252;
+				font-size: 18px;
+				line-height: 1;
+				text-decoration: none
+			}
+
+			.shopping-cart .count-input,
+			.wishlist-table .count-input,
+			.order-table .count-input {
+				display: inline-block;
+				width: 100%;
+				width: 86px
+			}
+
+			.shopping-cart .product-item,
+			.wishlist-table .product-item,
+			.order-table .product-item {
+				display: table;
+				width: 100%;
+				min-width: 150px;
+				margin-top: 5px;
+				margin-bottom: 3px
+			}
+
+				.shopping-cart .product-item .product-thumb,
+				.shopping-cart .product-item .product-info,
+				.wishlist-table .product-item .product-thumb,
+				.wishlist-table .product-item .product-info,
+				.order-table .product-item .product-thumb,
+				.order-table .product-item .product-info {
+					display: table-cell;
+					vertical-align: top
+				}
+
+				.shopping-cart .product-item .product-thumb,
+				.wishlist-table .product-item .product-thumb,
+				.order-table .product-item .product-thumb {
+					width: 130px;
+					padding-right: 20px
+				}
+
+					.shopping-cart .product-item .product-thumb > img,
+					.wishlist-table .product-item .product-thumb > img,
+					.order-table .product-item .product-thumb > img {
+						display: block;
+						width: 100%
+					}
+
+
+
+				.shopping-cart .product-item .product-info span,
+				.wishlist-table .product-item .product-info span,
+				.order-table .product-item .product-info span {
+					display: block;
+					font-size: 13px
+				}
+
+					.shopping-cart .product-item .product-info span > em,
+					.wishlist-table .product-item .product-info span > em,
+					.order-table .product-item .product-info span > em {
+						font-weight: 500;
+						font-style: normal
+					}
+
+				.shopping-cart .product-item .product-title,
+				.wishlist-table .product-item .product-title,
+				.order-table .product-item .product-title {
+					margin-bottom: 6px;
+					padding-top: 5px;
+					font-size: 16px;
+					font-weight: 500
+				}
+
+					.shopping-cart .product-item .product-title > a,
+					.wishlist-table .product-item .product-title > a,
+					.order-table .product-item .product-title > a {
+						transition: color .3s;
+						color: #374250;
+						line-height: 1.5;
+						text-decoration: none
+					}
+
+						.shopping-cart .product-item .product-title > a:hover,
+						.wishlist-table .product-item .product-title > a:hover,
+						.order-table .product-item .product-title > a:hover {
+							color: #0da9ef
+						}
+
+					.shopping-cart .product-item .product-title small,
+					.wishlist-table .product-item .product-title small,
+					.order-table .product-item .product-title small {
+						display: inline;
+						margin-left: 6px;
+						font-weight: 500
+					}
+
+				.wishlist-table .product-item .product-thumb {
+					display: table-cell !important
+				}
+
+
+		.shopping-cart-footer {
+			display: table;
+			width: 100%;
+			padding: 10px 0;
+			border-top: 1px solid #e1e7ec
+		}
+
+			.shopping-cart-footer > .column {
+				display: table-cell;
+				padding: 5px 0;
+				vertical-align: middle
+			}
+
+				.shopping-cart-footer > .column:last-child {
+					text-align: right
+				}
+
+					.shopping-cart-footer > .column:last-child .btn {
+						margin-right: 0;
+						margin-left: 15px
+					}
+
+
+
+		.coupon-form .form-control {
+			display: inline-block;
+			width: 100%;
+			max-width: 235px;
+			margin-right: 12px;
+		}
+
+		.form-control-sm:not(textarea) {
+			height: 36px;
+		}
+
+	</style>
+
+
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<div class="header_top">
+				<div class="logo">
+					<a asp-area="" asp-controller="Home" asp-action="TrangChu"> <img src="../UserLayout/images/logo.png" alt="" /></a>
+				</div>
+				<div class="headertop_desc">
+					<div class="account_desc">
+						<ul>
+							@{
+								// Truy xuất giá trị của Session có khóa "Role"
+								string role = Context.Session.GetString("Role");
+								string username = Context.Session.GetString("Username");
+							}
+
+							@if (username == null)
+							{
+
+
+								<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="TrangDangNhap" style="font-size:1.0em">Đăng nhập</a></li>
+								<li><i class="fa fa-user-plus" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="TrangDangKy" style="font-size:1.0em">Đăng ký</a></li>
+								@await Component.InvokeAsync("Cart")
+							}
+							else if (username != null && role == "0")
+							{
+
+								<div class="dropdown">
+									<button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										@($"{username}")
+									</button>
+									<div class="dropdown-menu list-unstyled" aria-labelledby="dropdownMenuButton">
+								<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditUser" style="font-size:0.8em">Thông tin người dùng</a></li>
+								<br>
+								<li><i class="fa fa-key" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditPassword" style="font-size:0.8em">Đổi mật khẩu</a></li>
+								<br>
+								<li><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Cart" asp-action="DanhSachDonHang" asp-route-maUser="MaUser" style="font-size:0.8em">Đơn hàng</a></li>
+								<br>
+										@await Component.InvokeAsync("Cart")
+								<br>
+								<li><i class="fa fa-sign-out" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="Logout" style="font-size:0.8em">Đăng xuất</a></li>
+
+						</div>
+					</div>
+
+
+
+
+							}
+							else if (username != null && role == "1")
+							{
+					<div class="dropdown">
+						<button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										@($"{username}")
+						</button>
+						<div class="dropdown-menu list-unstyled" aria-labelledby="dropdownMenuButton">
+							<li><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:1.0em"></i><a asp-area="Admin" asp-controller="Admin" asp-action="Index" style="font-size:0.8em">Admin</a></li>
+							<br>
+							<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditUser" style="font-size:0.8em">Thông tin người dùng</a></li>
+							<br>
+							<li><i class="fa fa-key" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditPassword" style="font-size:0.8em">Đổi mật khẩu</a></li>
+							<br>
+							<li><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Cart" asp-action="DanhSachDonHang" asp-route-maUser="MaUser" style="font-size:0.8em">Đơn hàng</a></li>
+							<br>
+										@await Component.InvokeAsync("Cart")
+							<br>
+							<li><i class="fa fa-sign-out" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="Logout" style="font-size:0.8em">Đăng xuất</a></li>
+
+						</div>
+					</div>
+
+							}
+
+				</ul>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+		<script type="text/javascript">
+			function DropDown(el) {
+				this.dd = el;
+				this.initEvents();
+			}
+			DropDown.prototype = {
+				initEvents: function () {
+					var obj = this;
+
+					obj.dd.on('click', function (event) {
+						$(this).toggleClass('active');
+						event.stopPropagation();
+					});
+				}
+			}
+
+			$(function () {
+
+				var dd = new DropDown($('#dd'));
+
+				$(document).click(function () {
+					// all dropdowns
+					$('.wrapper-dropdown-2').removeClass('active');
+				});
+
+			});
+
+		</script>
+		<div class="clear"></div>
+	</div>
+
+	<div class="main">
+		<div class="container padding-bottom-3x mb-1">
+			<!-- Shopping Cart-->
+			<div class="table-responsive shopping-cart">
+				<h2>Chi tiết đơn hàng </h2>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Mã sản phẩm</th>
+							<th>Số lượng</th>
+							<th>Đơn giá</th>
+							<th>Thành tiền</th>
+						
+						</tr>
+					</thead>
+					<tbody>
+								@foreach (var chiTiet in Model)
+								{
+							<tr>
+								<td>@chiTiet.MaSanPham</td>
+								<td>@chiTiet.SoLuong</td>
+								<td>@chiTiet.DonGia</td>
+								<td>@chiTiet.ThanhTien</td>
+								
+							</tr>
+								}
+					</tbody>
+				</table>
+
+			</div>
+			<div class="shopping-cart-footer">
+				<div class="column text-lg">Tổng tiền: @Model.Sum(p => p.ThanhTien)$ <span class="text-medium"></span></div>
+			</div>
+			<div class="shopping-cart-footer">
+				<div class="column"><a class="btn btn-outline-secondary" asp-action="TrangChu" asp-controller="Home"><i class="icon-arrow-left"></i>&nbsp;Trở lại trang chủ</a></div>
+			
+			</div>
+		</div>
+	</div>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			var quantityInput = document.getElementById('quantityInput');
+			var btnMinus = document.querySelector('.btn-minus');
+			var btnPlus = document.querySelector('.btn-plus');
+
+			btnPlus.addEventListener('click', function () {
+				updateQuantity(1);
+			});
+
+			btnMinus.addEventListener('click', function () {
+				updateQuantity(-1);
+			});
+
+			function updateQuantity(amount) {
+				var currentValue = parseInt(quantityInput.value) || 0;
+				var newValue = currentValue + amount;
+
+				// Đảm bảo giá trị không âm
+				if (newValue >= 0) {
+					quantityInput.value = newValue;
+				}
+			}
+		});
+	</script>
+
+	<div class="footer">
+		<div class="wrap">
+			<div class="section group">
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Thông Tin</h4>
+					<ul>
+						<li><a href="gioi-thieu.html">Về Chúng Tôi</a></li>
+						<li><a href="lien-he.html">Dịch Vụ Khách Hàng</a></li>
+						<li><a href="#">Tìm Kiếm Nâng Cao</a></li>
+						<li><a href="don-dat-hang.html">Đơn Đặt Hàng và Trả Hàng</a></li>
+						<li><a href="lien-he.html">Liên Hệ Chúng Tôi</a></li>
+					</ul>
+				</div>
+
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Tại Sao Chọn Chúng Tôi</h4>
+					<ul>
+						<li><a href="gioi-thieu.html">Về Chúng Tôi</a></li>
+						<li><a href="lien-he.html">Dịch Vụ Khách Hàng</a></li>
+						<li><a href="#">Chính Sách Bảo Mật</a></li>
+						<li><a href="lien-he.html">Bản Đồ Website</a></li>
+						<li><a href="#">Điều Khoản Tìm Kiếm</a></li>
+					</ul>
+				</div>
+
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Tài Khoản Của Tôi</h4>
+					<ul>
+						<li><a href="lien-he.html">Đăng Nhập</a></li>
+						<li><a href="trang-chu.html">Xem Giỏ Hàng</a></li>
+						<li><a href="#">Danh Sách Mong Muốn Của Tôi</a></li>
+						<li><a href="#">Theo Dõi Đơn Đặt Hàng Của Tôi</a></li>
+						<li><a href="lien-he.html">Hỗ Trợ</a></li>
+					</ul>
+				</div>
+
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Liên Hệ</h4>
+					<ul>
+						<li><span>+91-123-456789</span></li>
+						<li><span>+00-123-000000</span></li>
+					</ul>
+					<div class="social-icons">
+						<h4>Theo Dõi Chúng Tôi</h4>
+						<ul>
+							<li><a href="#" target="_blank"><img src="../UserLayout/images/facebook.png" alt="" /></a></li>
+							<li><a href="#" target="_blank"><img src="../UserLayout/images/twitter.png" alt="" /></a></li>
+							<li><a href="#" target="_blank"><img src="../UserLayout/images/skype.png" alt="" /> </a></li>
+							<li><a href="#" target="_blank"> <img src="../UserLayout/images/dribbble.png" alt="" /></a></li>
+							<li><a href="#" target="_blank"> <img src="../UserLayout/images/linkedin.png" alt="" /></a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="copy_right">
+			<p> Design by <a href="http://w3layouts.com/">...</a></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+		});
+	</script>
+	<a href="#" id="toTop"><span id="toTopHover"> </span></a>
+</body>
+</html>

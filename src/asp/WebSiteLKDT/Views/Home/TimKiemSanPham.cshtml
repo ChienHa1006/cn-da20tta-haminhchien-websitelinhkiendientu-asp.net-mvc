@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "TimKiemSanPham";
+    Layout = "~/Views/Shared/_LayoutTrangChu.cshtml";
+}
+
+
+@model List<SanPham> ;
+
+
+@foreach (var danhMuc in Model.Select(item => item.MaDanhMuc).Distinct())
+{
+    <div class="content_top">
+        <div class="heading">
+            <h3>@danhMuc</h3>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="section group">
+        @{
+            var productsInDanhMuc = Model.Where(sp => sp.MaDanhMuc == danhMuc).ToList();
+        }
+
+        @if (productsInDanhMuc.Any())
+        {
+            foreach (var item in productsInDanhMuc)
+            {
+                <div class="grid_1_of_4 images_1_of_4">
+                    <a asp-area="" asp-controller="Home" asp-action="TrangSanPham" asp-route-MaSP="@item.MaSanPham"><img src="@Url.Content("~/UserLayout/images/" + item.Anh)" alt="Hình ảnh" /></a>
+                    <a asp-area="" asp-controller="Home" asp-action="TrangSanPham" asp-route-MaSP="@item.MaSanPham"><h2>@item.TenSanPham</h2></a>
+                    <div class="price-details">
+                        <div class="price-number">
+                            <p><span class="rupees">$@item.GiaBan</span></p>
+                        </div>
+                        <div class="add-cart">
+                            <form asp-controller="Home" asp-action="ThemSanPham" method="post">
+                                <button type="submit">Thêm vào giỏ hàng</button>
+                            </form>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Không tìm thấy sản phẩm trong danh mục này.</p>
+        }
+    </div>
+}

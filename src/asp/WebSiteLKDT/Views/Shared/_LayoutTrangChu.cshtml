@@ -1,0 +1,309 @@
+﻿@using System.Web;
+<!DOCTYPE HTML>
+<head>
+	<title>WebSite bán linh kiện</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link href="../UserLayout/css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="../UserLayout/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+	<script type="text/javascript" src="../UserLayout/../UserLayout/js/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="../UserLayout/js/move-top.js"></script>
+	<script type="text/javascript" src="../UserLayout/js/easing.js"></script>
+	<script type="text/javascript" src="../UserLayout/js/startstop-slider.js"></script>
+	<meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		  crossorigin="anonymous">
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+	<style>
+		.slider-img img {
+        height: 100%;
+        width: auto; /* Đảm bảo chiều rộng tự động điều chỉnh để giữ tỷ lệ khung hình */
+    }
+
+		.mySlides {
+			display: none;
+		}
+		.search-box {
+			display: inline-block;
+		}
+
+		.search-form {
+			display: flex;
+			margin-left: auto; /* Đưa .search-form về cuối bên phải */
+		}
+
+		.search-input {
+			padding: 5px;
+			border: 1px solid #ccc;
+		}
+
+		.search-button {
+			padding: 5px 10px;
+			background-color: #cc0000;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+		}
+		#mover img{
+			 height: 400px;
+        width: 800px;
+	
+		}
+
+		</style>
+
+
+</head>
+<body>
+	<div class="wrap">
+		<div class="header">
+			<div class="header_top">
+				<div class="logo">
+					<a asp-area="" asp-controller="Home" asp-action="TrangChu"> <img src="../UserLayout/images/logo.png" alt="" /></a>
+				</div>
+				<div class="headertop_desc">
+					<div class="account_desc">
+						<ul>
+							@{
+								// Truy xuất giá trị của Session có khóa "Role"
+								string role = Context.Session.GetString("Role");
+								string username = Context.Session.GetString("Username");
+							}
+
+							@if (username == null)
+							{
+
+								
+								<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="TrangDangNhap" style="font-size:1.0em">Đăng nhập</a></li>
+								<li><i class="fa fa-user-plus" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="TrangDangKy" style="font-size:1.0em">Đăng ký</a></li>
+                                @await Component.InvokeAsync("Cart")
+							}
+							else if (username != null && role == "0")
+							{
+								
+								<div class="dropdown">
+									<button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										@($"{username}")
+									</button>
+									<div class="dropdown-menu list-unstyled" aria-labelledby="dropdownMenuButton">
+								<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditUser" style="font-size:0.8em">Thông tin người dùng</a></li>
+								<br>
+								<li><i class="fa fa-key" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditPassword" style="font-size:0.8em">Đổi mật khẩu</a></li>
+								<br>
+								<li><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Cart" asp-action="DanhSachDonHang" asp-route-maUser="MaUser" style="font-size:0.8em">Đơn hàng</a></li>
+								<br>
+										@await Component.InvokeAsync("Cart")
+								<br>
+								<li><i class="fa fa-sign-out" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="Logout" style="font-size:0.8em">Đăng xuất</a></li>
+										
+						</div>
+								</div>
+								
+								
+
+								
+							}
+							else if (username != null && role == "1")
+							{
+					<div class="dropdown">
+						<button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										@($"{username}")
+						</button>
+						<div class="dropdown-menu list-unstyled" aria-labelledby="dropdownMenuButton">
+							<li><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:1.0em"></i><a asp-area="Admin" asp-controller="Admin" asp-action="Index" style="font-size:0.8em">Admin</a></li>
+							<br>
+							<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditUser" style="font-size:0.8em">Thông tin người dùng</a></li>
+							<br>
+							<li><i class="fa fa-key" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditPassword" style="font-size:0.8em">Đổi mật khẩu</a></li>
+							<br>
+							<li><i class="fa fa-shopping-cart" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Cart" asp-action="DanhSachDonHang" asp-route-maUser="MaUser" style="font-size:0.8em">Đơn hàng</a></li>
+							<br>
+										@await Component.InvokeAsync("Cart")
+							<br>
+							<li><i class="fa fa-sign-out" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="Logout" style="font-size:0.8em">Đăng xuất</a></li>
+									
+						</div>
+					</div>
+							
+							}
+
+						</ul>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				<script type="text/javascript">
+					function DropDown(el) {
+						this.dd = el;
+						this.initEvents();
+					}
+					DropDown.prototype = {
+						initEvents: function () {
+							var obj = this;
+
+							obj.dd.on('click', function (event) {
+								$(this).toggleClass('active');
+								event.stopPropagation();
+							});
+						}
+					}
+
+					$(function () {
+
+						var dd = new DropDown($('#dd'));
+
+						$(document).click(function () {
+							// all dropdowns
+							$('.wrapper-dropdown-2').removeClass('active');
+						});
+
+					});
+
+				</script>
+        <div class="clear"></div>
+			</div>
+			<div class="header_bottom">
+				<div class="menu">
+					<ul>
+						<li class="active"><a asp-area="" asp-controller="Home" asp-action="TrangChu">Trang Chủ</a></li>
+						<li><a asp-area="" asp-controller="Home" asp-action="TrangGioiThieu">Giới thiệu</a></li>
+					
+					</ul>
+
+
+				</div>
+			<div class="search_box">
+			<form action="@Url.Action("TimKiemSanPham", "Home")" method="get">
+				<input type="text" name="timkiem" placeholder="Tìm kiếm...">
+			</form>
+		</div>
+				<div class="clear"></div>
+			</div>
+			<div class="header_slide">
+				<div class="header_bottom_left">
+					@await Component.InvokeAsync("LoaiSPMenu")
+				</div>
+				
+	<div class="header_bottom_right">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <div class="slider">
+        <div id="slider">
+            <div id="mover">
+                <div id="slide-1" class="slide">
+                    <div class="slider-img" style="width:800px; height:400px">
+                        <a href="preview.html"><img src="../UserLayout/images/slider1.jpg" alt="learn more" /></a>
+                    </div>
+                    <!-- Xoá hoặc ẩn phần chứa chữ dưới đây -->
+                </div>
+                <div class="slide" > 
+                    <!-- Ẩn phần chứa chữ dưới đây -->
+                    <div class="slider-img" style="width:800px; height:400px ;margin-left: 90px;"">
+                        <a href="preview.html"><img src="../UserLayout/images/slider2.jpg" alt="learn more" /></a>
+                    </div>
+                </div>
+                 <div class="slide">
+                    <div class="slider-img" style="width:800px; height:400px	;margin-left: 130px;">
+                       <a href="preview.html"><img src="../UserLayout/images/slider3.jpg" alt="learn more" /></a>
+                    </div>
+					 </div>
+
+                    <!-- Xoá hoặc ẩn phần chứa chữ dưới đây -->
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+
+
+		<div class="main">
+			@RenderBody()
+		</div>
+	
+	<div class="footer">
+		<div class="wrap">
+			<div class="section group">
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Thông Tin</h4>
+					<ul>
+						<li><a href="gioi-thieu.html">Về Chúng Tôi</a></li>
+						<li><a href="lien-he.html">Dịch Vụ Khách Hàng</a></li>
+						<li><a href="#">Tìm Kiếm Nâng Cao</a></li>
+						<li><a href="don-dat-hang.html">Đơn Đặt Hàng và Trả Hàng</a></li>
+						<li><a href="lien-he.html">Liên Hệ Chúng Tôi</a></li>
+					</ul>
+				</div>
+
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Tại Sao Chọn Chúng Tôi</h4>
+					<ul>
+						<li><a href="gioi-thieu.html">Về Chúng Tôi</a></li>
+						<li><a href="lien-he.html">Dịch Vụ Khách Hàng</a></li>
+						<li><a href="#">Chính Sách Bảo Mật</a></li>
+						<li><a href="lien-he.html">Bản Đồ Website</a></li>
+						<li><a href="#">Điều Khoản Tìm Kiếm</a></li>
+					</ul>
+				</div>
+
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Tài Khoản Của Tôi</h4>
+					<ul>
+						<li><a href="lien-he.html">Đăng Nhập</a></li>
+						<li><a href="trang-chu.html">Xem Giỏ Hàng</a></li>
+						<li><a href="#">Danh Sách Mong Muốn Của Tôi</a></li>
+						<li><a href="#">Theo Dõi Đơn Đặt Hàng Của Tôi</a></li>
+						<li><a href="lien-he.html">Hỗ Trợ</a></li>
+					</ul>
+				</div>
+
+				<div class="col_1_of_4 span_1_of_4">
+					<h4>Liên Hệ</h4>
+					<ul>
+						<li><span>+91-123-456789</span></li>
+						<li><span>+00-123-000000</span></li>
+					</ul>
+					<div class="social-icons">
+						<h4>Theo Dõi Chúng Tôi</h4>
+						<ul>
+							<li><a href="#" target="_blank"><img src="../UserLayout/images/facebook.png" alt="" /></a></li>
+							<li><a href="#" target="_blank"><img src="../UserLayout/images/twitter.png" alt="" /></a></li>
+							<li><a href="#" target="_blank"><img src="../UserLayout/images/skype.png" alt="" /> </a></li>
+							<li><a href="#" target="_blank"> <img src="../UserLayout/images/dribbble.png" alt="" /></a></li>
+							<li><a href="#" target="_blank"> <img src="../UserLayout/images/linkedin.png" alt="" /></a></li>
+							<div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="copy_right">
+			<p> Design by <a href="http://w3layouts.com/">...</a></p>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$().UItoTop({ easingType: 'easeOutQuart' });
+
+		});
+	</script>
+	<a href="#" id="toTop"><span id="toTopHover"> </span></a>
+</body>
+</html>
+

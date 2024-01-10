@@ -1,0 +1,155 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebSiteLKDT
+build_property.RootNamespace = WebSiteLKDT
+build_property.ProjectDir = D:\.File Project VStudio 2022\WebSiteLKDT\WebSiteLKDT\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\.File Project VStudio 2022\WebSiteLKDT\WebSiteLKDT
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Danhmuc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRGFuaG11Yy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Danhmucsanpham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cRGFuaG11Y3NhbnBoYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Suasanpham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cU3Vhc2FucGhhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Suataikhoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cU3VhdGFpa2hvYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Taikhoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cVGFpa2hvYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Themdanhmuc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cVGhlbWRhbmhtdWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Themsanpham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cVGhlbXNhbnBoYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Xoadanhmuc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cWG9hZGFuaG11Yy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Xoasanpham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cWG9hc2FucGhhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Admin/Xoataikhoan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cWG9hdGFpa2hvYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Areas/Admin/Views/Shared/_LayoutDanhmucsanpham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXREYW5obXVjc2FucGhhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Cart/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/EditPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZGl0VXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/LocSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2NTYW5QaGFtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/TimKiemSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUaW1LaWVtU2FuUGhhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/TrangChu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFuZ0NodS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/TrangDangKy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFuZ0RhbmdLeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/TrangDangNhap.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFuZ0RhbmdOaGFwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/TrangDanhMuc.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFuZ0RhbmhNdWMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/TrangGioiThieu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFuZ0dpb2lUaGlldS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/TrangSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFuZ1NhblBoYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Home/TrangTatcaSanPham.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUcmFuZ1RhdGNhU2FuUGhhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Shared/Components/Cart/CartPanel.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQ2FydFxDYXJ0UGFuZWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Shared/Components/LoaiSpMenu/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTG9haVNwTWVudVxEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Shared/_LayoutTrangChu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRUcmFuZ0NodS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Shared/_LayoutTrangGioiThieu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRUcmFuZ0dpb2lUaGlldS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/.File Project VStudio 2022/WebSiteLKDT/WebSiteLKDT/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-8ji0740itn

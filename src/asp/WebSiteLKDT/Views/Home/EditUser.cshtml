@@ -1,0 +1,348 @@
+﻿@model WebSiteLKDT.Models.LbUser
+
+@{
+    Layout = null;
+}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #555;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        background-color: #3498db;
+        color: #fff;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+
+        button:hover {
+            background-color: #1a67a2;
+        }
+
+</style>
+
+@using System.Web;
+<!DOCTYPE HTML>
+<head>
+    <title>Free Home Shoppe Website Template | Home :: w3layouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href="../UserLayout/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../UserLayout/css/slider.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="../font-awesome/css/font-awesome.min.css">
+    <script type="text/javascript" src="../UserLayout/../UserLayout/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="../UserLayout/js/move-top.js"></script>
+    <script type="text/javascript" src="../UserLayout/js/easing.js"></script>
+    <script type="text/javascript" src="../UserLayout/js/startstop-slider.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="header_top">
+                <div class="logo">
+                    <a asp-area="" asp-controller="Home" asp-action="TrangChu"><img src="../UserLayout/images/logo.png" alt="" /></a>
+                </div>
+                <div class="headertop_desc">
+                    <div class="account_desc">
+                     <ul>
+							@{
+								// Truy xuất giá trị của Session có khóa "Role"
+								string role = Context.Session.GetString("Role");
+								string username = Context.Session.GetString("Username");
+							}
+
+							@if (username == null)
+							{
+
+								
+								<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="TrangDangNhap" style="font-size:1.0em">Đăng nhập</a></li>
+								<li><i class="fa fa-user-plus" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="TrangDangKy" style="font-size:1.0em">Đăng ký</a></li>
+                                @await Component.InvokeAsync("Cart")
+							}
+							else if (username != null && role == "0")
+							{
+								
+								<div class="dropdown">
+									<button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										@($"{username}")
+									</button>
+									<div class="dropdown-menu list-unstyled" aria-labelledby="dropdownMenuButton">
+								<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditUser" style="font-size:0.8em">Thông tin người dùng</a></li>
+								<br>
+								<li><i class="fa fa-key" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditPassword" style="font-size:0.8em">Đổi mật khẩu</a></li>
+								<br>
+                                <li><i class="fa fa-key" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Cart" asp-action="Checkout" style="font-size:0.8em">Đơn hàng</a></li>
+                                <br>
+										@await Component.InvokeAsync("Cart")
+								<br>
+								<li><i class="fa fa-sign-out" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="Logout" style="font-size:0.8em">Đăng xuất</a></li>
+										
+						</div>
+								</div>
+								
+								
+
+								
+							}
+							else if (username != null && role == "1")
+							{
+					<div class="dropdown">
+						<button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										@($"{username}")
+						</button>
+						<div class="dropdown-menu list-unstyled" aria-labelledby="dropdownMenuButton">
+							<li><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size:1.0em"></i><a asp-area="Admin" asp-controller="Admin" asp-action="Index" style="font-size:0.8em">Admin</a></li>
+							<br>
+							<li><i class="fa fa-user" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditUser" style="font-size:0.8em">Thông tin người dùng</a></li>
+							<br>
+							<li><i class="fa fa-key" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="EditPassword" style="font-size:0.8em">Đổi mật khẩu</a></li>
+							<br>
+                            <li><i class="fa fa-key" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Cart" asp-action="Checkout" style="font-size:0.8em">Đơn hàng</a></li>
+                            <br>
+										@await Component.InvokeAsync("Cart")
+							<br>
+							<li><i class="fa fa-sign-out" aria-hidden="true" style="font-size:1.2em"></i><a asp-area="" asp-controller="Home" asp-action="Logout" style="font-size:0.8em">Đăng xuất</a></li>
+									
+						</div>
+					</div>
+							
+							}
+
+						</ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <script type="text/javascript">
+            function DropDown(el) {
+                this.dd = el;
+                this.initEvents();
+            }
+            DropDown.prototype = {
+                initEvents: function () {
+                    var obj = this;
+
+                    obj.dd.on('click', function (event) {
+                        $(this).toggleClass('active');
+                        event.stopPropagation();
+                    });
+                }
+            }
+
+            $(function () {
+
+                var dd = new DropDown($('#dd'));
+
+                $(document).click(function () {
+                    // all dropdowns
+                    $('.wrapper-dropdown-2').removeClass('active');
+                });
+
+            });
+
+        </script>
+        <div class="clear"></div>
+    </div>
+
+    <h4 style="text-align:center"><b>THÔNG TIN NGƯỜI DÙNG</b></h4>
+<hr />
+    <div class="container">
+        <form id="editForm" asp-action="EditUser">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MaUser" />
+
+            <div class="form-group" style="display: none;">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" readonly />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" readonly />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HoTen" class="control-label">Họ và tên</label>
+                <input asp-for="HoTen" class="form-control" readonly />
+                <span asp-validation-for="HoTen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Địa chỉ Email</label>
+                <input asp-for="Email" class="form-control" readonly />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiaChi" class="control-label">Địa chỉ</label>
+                <input asp-for="DiaChi" class="form-control" readonly />
+                <span asp-validation-for="DiaChi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DienThoai" class="control-label">Số điện thoại</label>
+                <input asp-for="DienThoai" class="form-control" readonly />
+                <span asp-validation-for="DienThoai" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label asp-for="RoleId" class="control-label"></label>
+                <input asp-for="RoleId" class="form-control" readonly />
+                <span asp-validation-for="RoleId" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label asp-for="NgayTao" class="control-label"></label>
+                <input asp-for="NgayTao" class="form-control" readonly />
+                <span asp-validation-for="NgayTao" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="display: none;">
+                <label asp-for="TrangThai" class="control-label"></label>
+                <input asp-for="TrangThai" class="form-control" readonly />
+                <span asp-validation-for="TrangThai" class="text-danger"></span>
+            </div>
+
+            <div class="form-group" id="editButton">
+                <button type="button" class="btn btn-danger" onclick="enableEditing()">Chỉnh sửa</button>
+            </div>
+
+            <div class="form-group" style="display: none;" id="saveButton">
+                <input type="submit" value="Lưu" class="btn btn-danger" />
+            </div>
+        </form>
+        <div class="text-right">
+            <a asp-action="TrangChu" class="btn btn-danger">Trở về</a>
+        </div>
+
+        <script>
+            function enableEditing() {
+                document.getElementById('editButton').style.display = 'none';
+                document.getElementById('saveButton').style.display = 'block';
+
+                // Bỏ thuộc tính readonly
+                var inputs = document.getElementById('editForm').getElementsByTagName('input');
+                for (var i = 0; i < inputs.length; i++) {
+                    inputs[i].removeAttribute('readonly');
+                }
+            }
+        </script>
+    </div>
+    <div class="footer">
+        <div class="wrap">
+            <div class="section group">
+                <div class="col_1_of_4 span_1_of_4">
+                    <h4>Thông Tin</h4>
+                    <ul>
+                        <li><a href="gioi-thieu.html">Về Chúng Tôi</a></li>
+                        <li><a href="lien-he.html">Dịch Vụ Khách Hàng</a></li>
+                        <li><a href="#">Tìm Kiếm Nâng Cao</a></li>
+                        <li><a href="don-dat-hang.html">Đơn Đặt Hàng và Trả Hàng</a></li>
+                        <li><a href="lien-he.html">Liên Hệ Chúng Tôi</a></li>
+                    </ul>
+                </div>
+
+                <div class="col_1_of_4 span_1_of_4">
+                    <h4>Tại Sao Chọn Chúng Tôi</h4>
+                    <ul>
+                        <li><a href="gioi-thieu.html">Về Chúng Tôi</a></li>
+                        <li><a href="lien-he.html">Dịch Vụ Khách Hàng</a></li>
+                        <li><a href="#">Chính Sách Bảo Mật</a></li>
+                        <li><a href="lien-he.html">Bản Đồ Website</a></li>
+                        <li><a href="#">Điều Khoản Tìm Kiếm</a></li>
+                    </ul>
+                </div>
+
+                <div class="col_1_of_4 span_1_of_4">
+                    <h4>Tài Khoản Của Tôi</h4>
+                    <ul>
+                        <li><a href="lien-he.html">Đăng Nhập</a></li>
+                        <li><a href="trang-chu.html">Xem Giỏ Hàng</a></li>
+                        <li><a href="#">Danh Sách Mong Muốn Của Tôi</a></li>
+                        <li><a href="#">Theo Dõi Đơn Đặt Hàng Của Tôi</a></li>
+                        <li><a href="lien-he.html">Hỗ Trợ</a></li>
+                    </ul>
+                </div>
+
+                <div class="col_1_of_4 span_1_of_4">
+                    <h4>Liên Hệ</h4>
+                    <ul>
+                        <li><span>+91-123-456789</span></li>
+                        <li><span>+00-123-000000</span></li>
+                    </ul>
+                    <div class="social-icons">
+                        <h4>Theo Dõi Chúng Tôi</h4>
+                        <ul>
+                            <li><a href="#" target="_blank"><img src="../UserLayout/images/facebook.png" alt="" /></a></li>
+                            <li><a href="#" target="_blank"><img src="../UserLayout/images/twitter.png" alt="" /></a></li>
+                            <li><a href="#" target="_blank"><img src="../UserLayout/images/skype.png" alt="" /> </a></li>
+                            <li><a href="#" target="_blank"> <img src="../UserLayout/images/dribbble.png" alt="" /></a></li>
+                            <li><a href="#" target="_blank"> <img src="../UserLayout/images/linkedin.png" alt="" /></a></li>
+                            <div class="clear"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy_right">
+            <p> Design by <a href="http://w3layouts.com/">...</a></p>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+
+        });
+    </script>
+    <a href="#" id="toTop"><span id="toTopHover"> </span></a>
+
+
+
+</body>
+</html>

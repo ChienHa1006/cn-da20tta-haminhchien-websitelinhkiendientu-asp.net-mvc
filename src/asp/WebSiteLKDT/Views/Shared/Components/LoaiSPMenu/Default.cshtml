@@ -1,0 +1,15 @@
+﻿@model IEnumerable<DanhMucSanPham>
+
+<div class="categories">
+	<ul>
+		<h3>Danh mục</h3>
+		@foreach (var item in Model)
+		{
+			<li>
+				<a asp-area="" asp-controller="Home" asp-action="TrangDanhMuc" asp-route-masanpham="@item.MaDanhMuc">@item.TenDanhMuc</a>
+
+			</li>
+		}
+
+	</ul>
+</div>

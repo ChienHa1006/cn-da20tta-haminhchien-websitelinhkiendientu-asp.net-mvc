@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebSiteLKDT.Models.DonHang>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Donhang";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Đơn hàng</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Ngày lập
+            </th>
+            <th>
+                Tổng tiền
+            </th>
+            <th>
+               Người dùng 
+            </th>
+            <th>
+                Chi tiết đơn hàng
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayLap)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TongTien)
+            </td>
+            <td>
+                @item.MaUser
+            </td>
+            <td>
+                <td><a href="@Url.Action("Chitietdonhang", "Admin", new { maDonHang = item.MaDonHang })">Xem chi tiết đơn hàng</a></td>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
